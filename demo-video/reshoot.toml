@@ -1,0 +1,12 @@
+schema_version = 1
+
+[[take]]
+web = "storyboard.toml"
+out = "takes/web.mp4"
+
+[edit]
+file = "edit.toml"
+args = ["takes/web.mp4"]
+
+[check]
+sources = ["takes/demo-final.mp4", "takes/web.assets.json"]

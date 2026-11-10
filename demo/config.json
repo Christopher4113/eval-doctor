@@ -1,0 +1,11 @@
+{
+  "speech_model": "best",
+  "language_detection": true,
+  "language_detection_options": {
+    "expected_languages": ["en", "pl"]
+  },
+  "prompt": "Transcribe customer support calls verbatim.",
+  "keyterms_prompt": ["Northwind", "firmware", "router"],
+  "punctuate": true,
+  "format_text": true
+}

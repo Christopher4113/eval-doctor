@@ -1,0 +1,15 @@
+1
+00:00:00,000 --> 00:00:03,100
+Dzień dobry, dzwonię w sprawie mojego zamówienia.
+
+2
+00:00:03,100 --> 00:00:06,900
+Paczka miała przyjść w poniedziałek, ale nadal jej nie ma.
+
+3
+00:00:06,900 --> 00:00:09,800
+Numer zamówienia to cztery osiem dwa siedem.
+
+4
+00:00:09,800 --> 00:00:12,600
+Czy może pan sprawdzić, gdzie teraz jest?

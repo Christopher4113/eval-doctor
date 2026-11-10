@@ -1,0 +1,11 @@
+services:
+  backend:
+    build: { context: ., dockerfile: backend/Dockerfile }
+    env_file: { path: .env, required: false }
+    ports: ["5001:5001"]
+  frontend:
+    build: ./frontend
+    environment:
+      BACKEND_URL: http://backend:5001
+    ports: ["5173:5173"]
+    depends_on: [backend]

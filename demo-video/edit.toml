@@ -1,0 +1,21 @@
+schema_version = 1
+output = "demo-final.mp4"
+
+[style]
+background = ["#18181b", "#0f3d3a"]
+foreground = "#fafafa"
+
+[frame]
+padding = 0.05
+radius = 14
+
+[[part]]
+card = "Eval Doctor\nCatch unfair ASR benchmarks early."
+duration = 2.6
+
+[[part]]
+take = 0
+
+[[part]]
+card = "Eval Doctor\nFlask · React · AssemblyAI API"
+duration = 3.0

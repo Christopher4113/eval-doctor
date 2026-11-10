@@ -1,0 +1,149 @@
+schema_version = 1
+id = "eval-doctor"
+url = "http://localhost:5173/"
+size = "1280x720@1.5"
+theme = "light"
+zoom = 1.6
+
+[caption]
+position = "bottom"
+min_seconds = 2.2
+
+[cursor]
+size = 1.1
+
+[[beat]]
+id = "open"
+caption = "A prospect sends their AssemblyAI benchmark. Before anyone quotes a WER, check the setup."
+hold = 2.8
+[[beat.expect]]
+type = "visible"
+target = {css = "[data-demo=load]"}
+
+[[beat]]
+id = "load"
+caption = "Their audio, their truth transcripts, their request config."
+hold = 1.6
+[[beat.action]]
+type = "click"
+target = {css = "[data-demo=load]"}
+[[beat.expect]]
+type = "text"
+target = {css = "h1"}
+contains = "Northwind"
+
+[[beat]]
+id = "config"
+caption = "\"best\" is a retired model name. prompt and keyterms_prompt can't be combined."
+hold = 2.6
+[[beat.action]]
+type = "click"
+target = {css = "textarea"}
+[[beat.expect]]
+type = "visible"
+target = {css = "textarea"}
+
+[[beat]]
+id = "analyze"
+caption = "One click: lint the config, inspect audio and truth files, transcribe, score."
+hold = 0.4
+[[beat.action]]
+type = "click"
+target = {css = "[data-demo=analyze]"}
+[[beat.expect]]
+type = "visible"
+target = {css = "[data-demo=summary]"}
+timeout = 15000
+
+[[beat]]
+id = "summary"
+caption = "Raw WER says 17.4%. Normalized, it's 4.6%. Most of the gap is formatting, not recognition."
+hold = 4.0
+[[beat.expect]]
+type = "text"
+target = {css = "[data-demo=summary]"}
+contains = "pts of this is formatting"
+
+[[beat]]
+id = "errors"
+caption = "Config mistakes are caught before a single API call."
+hold = 3.0
+[[beat.action]]
+type = "scroll"
+dy = 420
+
+[[beat]]
+id = "stream"
+caption = "An 8 kHz phone recording against a 16 kHz stream config. A truth file that's really an SRT."
+hold = 3.4
+[[beat.action]]
+type = "scroll"
+dy = 470
+
+[[beat]]
+id = "fallback"
+caption = "Polish isn't on Universal-3.5 Pro. That file silently ran on Universal-2."
+hold = 3.4
+[[beat.action]]
+type = "scroll"
+dy = 560
+
+[[beat]]
+id = "files"
+caption = "Per-file WER, and the model that actually ran."
+hold = 2.4
+[[beat.action]]
+type = "scroll"
+dy = 900
+[[beat.action]]
+type = "click"
+target = {css = "tr[data-file='sports_injuries.mp3']"}
+
+[[beat]]
+id = "diff-raw"
+caption = "Raw diff: the truth file has no punctuation, so every comma counts as an error."
+hold = 3.0
+[[beat.action]]
+type = "scroll"
+dy = 620
+[[beat.expect]]
+type = "visible"
+target = {css = "[data-demo=diff]"}
+
+[[beat]]
+id = "diff-normalized"
+caption = "Same normalizer on both sides. 26.3% WER becomes 0.0%. Every error was formatting."
+hold = 3.6
+[[beat.action]]
+type = "click"
+target = {css = "[data-demo=diff-normalized]"}
+[[beat.expect]]
+type = "text"
+target = {css = "[data-demo=diff]"}
+contains = "WER 0.0%"
+
+[[beat]]
+id = "report"
+caption = "Then a customer-ready summary with the corrected config, written for Slack."
+hold = 3.6
+[[beat.action]]
+type = "scroll"
+dy = -6000
+[[beat.action]]
+type = "click"
+target = {css = "[data-demo=generate-report]"}
+[[beat.expect]]
+type = "visible"
+target = {css = "[data-demo=report-body]"}
+
+[[beat]]
+id = "copy"
+caption = "Copy, paste, and the customer re-runs a fair benchmark."
+hold = 2.4
+[[beat.action]]
+type = "click"
+target = {css = "[data-demo=report] header button", text = "Copy"}
+[[beat.expect]]
+type = "text"
+target = {css = "[data-demo=report]"}
+contains = "Copied"

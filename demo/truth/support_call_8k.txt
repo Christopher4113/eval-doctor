@@ -1,0 +1,5 @@
+Agent: Thanks for calling Northwind support, this is Maya. How can I help you today?
+Customer: Hi, my router keeps dropping the connection every evening, usually around eight.
+Agent: Sorry about that. Can you read me the serial number on the back of the device?
+Customer: Sure, it's K L seven four nine two.
+Agent: Thanks. I'm pushing a firmware update now. It should take about five minutes.
